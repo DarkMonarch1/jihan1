@@ -19,6 +19,7 @@ type Assists = {
 function loadAssists(callback: (assists: Assists) => any) {
   const assists: any = {};
 
+  const baseUrl = import.meta.env.BASE_URL || "/";
   const loadingDOM = document.querySelector("#loading");
   const loadingItemsDOM = document.querySelector("#loading-items");
   const loadingBarDOM = document.querySelector("#loading-bar-progress");
@@ -45,10 +46,10 @@ function loadAssists(callback: (assists: Assists) => any) {
     window.setTimeout(() => {
       (loadingDOM as any).style.opacity = "0";
       callback(assists as Assists);
-    }, 200);
+    }, 1000);
     window.setTimeout(() => {
       (loadingDOM as any).style.display = "none";
-    }, 500);
+    }, 1600);
   };
 
   manager.onProgress = function (url, itemsLoaded, itemsTotal) {
@@ -70,24 +71,22 @@ function loadAssists(callback: (assists: Assists) => any) {
 
   // Fonts
   const fontLoader = new FontLoader(manager);
-  fontLoader.load("/fonts/public-pixel.json", (font) => {
+  fontLoader.load(`${baseUrl}fonts/public-pixel.json`, (font) => {
     assists.publicPixelFont = font;
   });
-  fontLoader.load("/fonts/chill.json", (font) => {
+  fontLoader.load(`${baseUrl}fonts/chill.json`, (font) => {
     assists.chillFont = font;
   });
 
   // Texture
-
-  // Texture
   const textureLoader = new THREE.TextureLoader(manager);
-  textureLoader.load("/textures/bake-quality-5.jpg", (tex) => {
+  textureLoader.load(`${baseUrl}textures/bake-quality-5.jpg`, (tex) => {
     tex.flipY = false;
     tex.encoding = THREE.sRGBEncoding;
     assists.bakeTexture = tex;
   });
 
-  textureLoader.load("/textures/bake_floor-quality-3.jpg", (tex) => {
+  textureLoader.load(`${baseUrl}textures/bake_floor-quality-3.jpg`, (tex) => {
     tex.flipY = false;
     tex.encoding = THREE.sRGBEncoding;
     assists.bakeFloorTexture = tex;
@@ -97,12 +96,12 @@ function loadAssists(callback: (assists: Assists) => any) {
 
   cubeTextureLoader.load(
     [
-      `/textures/environmentMap/px.jpg`,
-      `/textures/environmentMap/nx.jpg`,
-      `/textures/environmentMap/py.jpg`,
-      `/textures/environmentMap/ny.jpg`,
-      `/textures/environmentMap/pz.jpg`,
-      `/textures/environmentMap/nz.jpg`,
+      `${baseUrl}textures/environmentMap/px.jpg`,
+      `${baseUrl}textures/environmentMap/nx.jpg`,
+      `${baseUrl}textures/environmentMap/py.jpg`,
+      `${baseUrl}textures/environmentMap/ny.jpg`,
+      `${baseUrl}textures/environmentMap/pz.jpg`,
+      `${baseUrl}textures/environmentMap/nz.jpg`,
     ],
     (tex) => {
       assists.environmentMapTexture = tex;
@@ -111,7 +110,7 @@ function loadAssists(callback: (assists: Assists) => any) {
 
   // Mesh
   const gltfLoader = new GLTFLoader(manager);
-  gltfLoader.load("/models/Commodore710_33.5.glb", (gltf) => {
+  gltfLoader.load(`${baseUrl}models/Commodore710_33.5.glb`, (gltf) => {
     assists.screenMesh = gltf.scene.children.find((m) => m.name === "Screen");
     assists.computerMesh = gltf.scene.children.find(
       (m) => m.name === "Computer"

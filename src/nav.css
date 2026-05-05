@@ -26,10 +26,10 @@ nav .btn {
   opacity: 0;
   pointer-events: none;
   padding: 8px 16px;
-  fill: var(--accent);
+  fill: #3b82f6;
   background-color: transparent;
-  border: 2px solid var(--accent);
-  color: var(--accent);
+  border: 2px solid #3b82f6;
+  color: #3b82f6;
   transition: all 0.3s;
 }
 
@@ -48,28 +48,28 @@ html[data-scroll="true"] nav .btn {
 }
 
 .active .btn {
-  box-shadow: 0 0 15px var(--accent), 4px 4px 0px rgba(212, 165, 116, 0.3);
-  background-color: var(--accent);
+  box-shadow: 0 0 15px #8b5cf6, 4px 4px 0px rgba(139, 92, 246, 0.3);
+  background-color: #8b5cf6;
   color: var(--bg-dark);
   fill: var(--bg-dark);
-  border-color: var(--accent);
+  border-color: #8b5cf6;
   opacity: 1 !important;
   pointer-events: all !important;
 }
 
 .active .btn:hover {
-  box-shadow: 0 0 20px var(--accent), 6px 6px 0px rgba(212, 165, 116, 0.4);
+  box-shadow: 0 0 20px #8b5cf6, 6px 6px 0px rgba(139, 92, 246, 0.4);
   transform: translate(-2px, -2px);
 }
 
 .active .btn:active {
-  box-shadow: 0 0 10px var(--accent), 2px 2px 0px rgba(212, 165, 116, 0.3);
+  box-shadow: 0 0 10px #8b5cf6, 2px 2px 0px rgba(139, 92, 246, 0.3);
   transform: translate(0, 0);
 }
 
 .menu-body {
-  background: linear-gradient(135deg, var(--bg-dark) 0%, #1a1f2e 100%);
-  color: var(--accent);
+  background: linear-gradient(135deg, #0a0e13 0%, #1a0f33 100%);
+  color: #3b82f6;
   font-size: 2em;
   font-family: "public-pixel", monospace;
   text-decoration: none !important;
@@ -88,7 +88,7 @@ html[data-scroll="true"] nav .btn {
   overflow: hidden;
   box-sizing: border-box;
   opacity: 0;
-  border-right: 3px solid var(--accent);
+  border-right: 3px solid #8b5cf6;
 }
 
 .menu-body a {
@@ -112,10 +112,10 @@ html[data-scroll="true"] nav .btn {
   transform: translateX(-50%);
   font-family: "chill", sans-serif;
   font-size: 14px;
-  box-shadow: 0 0 15px rgba(212, 165, 116, 0.3), 4px 4px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.3), 4px 4px 0px rgba(0, 0, 0, 0.5);
   background-color: var(--bg-dark);
-  color: var(--accent);
-  border: 2px solid var(--accent);
+  color: #3b82f6;
+  border: 2px solid #3b82f6;
   transition: all 0.3s;
   padding: 4px 24px;
   border: #f6d4b1 solid 1px;

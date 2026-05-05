@@ -64,23 +64,24 @@ export default function WebGL() {
 
     // Scene
     const scene = new THREE.Scene();
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.75);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
     scene.add(ambientLight);
     scene.background = new THREE.Color(0x0a0e13);
+    scene.fog = new THREE.Fog(0x0a0e13, 50, 120);
     
-    // Add a directional light for better model visibility
-    const directionalLight = new THREE.DirectionalLight(0xd4a574, 1.0);
+    // Add directional light with purple tint
+    const directionalLight = new THREE.DirectionalLight(0xb788f0, 1.1);
     directionalLight.position.set(5, 8, 8);
     directionalLight.castShadow = true;
     scene.add(directionalLight);
     
     // Add a subtle back light for depth
-    const backLight = new THREE.DirectionalLight(0x4a6fa5, 0.5);
+    const backLight = new THREE.DirectionalLight(0x4a5f9f, 0.6);
     backLight.position.set(-5, 3, -8);
     scene.add(backLight);
     
-    // Add point light for accent highlight
-    const pointLight = new THREE.PointLight(0xd4a574, 0.6);
+    // Add point light for accent highlight with purple
+    const pointLight = new THREE.PointLight(0x8b5cf6, 0.7);
     pointLight.position.set(0, 2, 3);
     scene.add(pointLight);
 
@@ -164,10 +165,13 @@ export default function WebGL() {
 
     const renderer = new THREE.WebGLRenderer({
       canvas: canvas,
+      antialias: true,
+      alpha: false,
     });
     renderer.setSize(sizes.width, sizes.height);
-    renderer.setPixelRatio(2);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.outputEncoding = THREE.sRGBEncoding;
+    renderer.setClearColor(0x0a0e13, 1);
 
     function updateCanvasSize(width: number, height: number) {
       // Update camera
@@ -208,7 +212,7 @@ export default function WebGL() {
     // Materials
     const computerMaterial = new THREE.MeshBasicMaterial({
       map: assists.bakeTexture || undefined,
-      color: assists.bakeTexture ? 0xffffff : 0xd4a574,
+      color: assists.bakeTexture ? 0xffffff : 0x8b5cf6,
     });
 
     /**
