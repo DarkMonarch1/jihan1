@@ -1,16 +1,21 @@
-!(/images/ed-title.png?aspect=2&noflow=true&width=1.33)
-
-
-##   Hi there, 
-
-#  *I'm Ed H*
-
-##   • Software Engineer
-##   • Digital Designer
 
 
 
 
+# Help
+### This is just like BASH except much more limited.
 
-### Welcome to ED-Linux 1.0 LTS
-### →→ Scroll or type "help" to get started
+## • Type*ls* to list directory contents
+
+## • Type*cd* to change directory
+
+## • Type*show* to render .md files
+
+## • Use ↑ and ↓ keys to scroll
+
+### Tip: try typing "show -all"
+
+
+## All commands
+### EDSH, version 0.2.1 
+
