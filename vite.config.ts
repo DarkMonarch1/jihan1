@@ -13,5 +13,5 @@ export default defineConfig({
     port: 1234,
     host: "localhost",
   },
-  base: "/jihan1/",
+  base: {"/jihan1/"},
 });
