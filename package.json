@@ -1,8 +1,4 @@
 {
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/edhinrichsen/retro-computer-website.git"
-  },
   "license": "MIT",
   "name": "retro-computer-website",
   "version": "1.0.0",
