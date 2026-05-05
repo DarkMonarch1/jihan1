@@ -2,14 +2,14 @@
 
 
 
-## Welcome to ED-Linux 1.0 LTS
+## Welcome to my site, Visitor
 
 
 
 #  Hi there,
-#  *I'm Edward*
+#  *I'm Jihan*
 #  -Creative Developer
-##     — Computer Science graduate of
-##        the University of Melbourne
+##     — Computer Science student of
+##        the North South University
 ##
 ###   *Scroll* or type "help" to get started
