@@ -3,6 +3,6 @@
 
 
 # Contact
-## Reach out on*LinkedIn*
+## Reach out on*FaceBook*
 
-https://www.linkedin.com/in/edwardhinrichsen/
+https://www.facebook.com/qdarkmonarchq/
