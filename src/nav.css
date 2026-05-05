@@ -2,7 +2,7 @@ nav {
   position: fixed;
   top: 0px;
   left: 0px;
-  background-color: antiquewhite;
+  background-color: var(--bg-dark);
   width: 0px;
   z-index: 5;
 }
@@ -26,7 +26,11 @@ nav .btn {
   opacity: 0;
   pointer-events: none;
   padding: 8px 16px;
-  fill: #f6d4b1;
+  fill: var(--accent);
+  background-color: transparent;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  transition: all 0.3s;
 }
 
 .menu-btn > .btn:first-child {
@@ -44,26 +48,28 @@ html[data-scroll="true"] nav .btn {
 }
 
 .active .btn {
-  box-shadow: 6px 6px 0px rgba(246, 212, 177, 0.7);
-  background-color: #f6d4b1;
-  color: #525252;
-  fill: #525252;
-  border-color: #525252;
+  box-shadow: 0 0 15px var(--accent), 4px 4px 0px rgba(212, 165, 116, 0.3);
+  background-color: var(--accent);
+  color: var(--bg-dark);
+  fill: var(--bg-dark);
+  border-color: var(--accent);
   opacity: 1 !important;
   pointer-events: all !important;
 }
 
 .active .btn:hover {
-  box-shadow: 8px 8px 6px rgba(246, 212, 177, 0.5);
+  box-shadow: 0 0 20px var(--accent), 6px 6px 0px rgba(212, 165, 116, 0.4);
+  transform: translate(-2px, -2px);
 }
 
 .active .btn:active {
-  box-shadow: 4px 4px 0px rgba(246, 212, 177, 0.7);
+  box-shadow: 0 0 10px var(--accent), 2px 2px 0px rgba(212, 165, 116, 0.3);
+  transform: translate(0, 0);
 }
 
 .menu-body {
-  background-color: #525252;
-  color: #f6d4b1;
+  background: linear-gradient(135deg, var(--bg-dark) 0%, #1a1f2e 100%);
+  color: var(--accent);
   font-size: 2em;
   font-family: "public-pixel", monospace;
   text-decoration: none !important;
@@ -82,6 +88,7 @@ html[data-scroll="true"] nav .btn {
   overflow: hidden;
   box-sizing: border-box;
   opacity: 0;
+  border-right: 3px solid var(--accent);
 }
 
 .menu-body a {
@@ -105,9 +112,10 @@ html[data-scroll="true"] nav .btn {
   transform: translateX(-50%);
   font-family: "chill", sans-serif;
   font-size: 14px;
-  box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.75);
-  background-color: #525252;
-  color: #f6d4b1;
+  box-shadow: 0 0 15px rgba(212, 165, 116, 0.3), 4px 4px 0px rgba(0, 0, 0, 0.5);
+  background-color: var(--bg-dark);
+  color: var(--accent);
+  border: 2px solid var(--accent);
   transition: all 0.3s;
   padding: 4px 24px;
   border: #f6d4b1 solid 1px;

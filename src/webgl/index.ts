@@ -64,9 +64,25 @@ export default function WebGL() {
 
     // Scene
     const scene = new THREE.Scene();
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.55);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.75);
     scene.add(ambientLight);
-    scene.background = new THREE.Color(0xf6d4b1);
+    scene.background = new THREE.Color(0x0a0e13);
+    
+    // Add a directional light for better model visibility
+    const directionalLight = new THREE.DirectionalLight(0xd4a574, 1.0);
+    directionalLight.position.set(5, 8, 8);
+    directionalLight.castShadow = true;
+    scene.add(directionalLight);
+    
+    // Add a subtle back light for depth
+    const backLight = new THREE.DirectionalLight(0x4a6fa5, 0.5);
+    backLight.position.set(-5, 3, -8);
+    scene.add(backLight);
+    
+    // Add point light for accent highlight
+    const pointLight = new THREE.PointLight(0xd4a574, 0.6);
+    pointLight.position.set(0, 2, 3);
+    scene.add(pointLight);
 
     /**
      * Camera
@@ -191,7 +207,8 @@ export default function WebGL() {
 
     // Materials
     const computerMaterial = new THREE.MeshBasicMaterial({
-      map: assists.bakeTexture,
+      map: assists.bakeTexture || undefined,
+      color: assists.bakeTexture ? 0xffffff : 0xd4a574,
     });
 
     /**
@@ -199,22 +216,38 @@ export default function WebGL() {
      */
     const computerGroup = new THREE.Group();
 
-    assists.screenMesh.material = screen.screenRenderEngine.material;
-    computerGroup.add(assists.screenMesh);
+    if (!assists.screenMesh) console.warn("screenMesh not found");
+    if (!assists.computerMesh) console.warn("computerMesh not found");
+    if (!assists.crtMesh) console.warn("crtMesh not found");
+    if (!assists.keyboardMesh) console.warn("keyboardMesh not found");
+    if (!assists.shadowPlaneMesh) console.warn("shadowPlaneMesh not found");
 
-    assists.computerMesh.material = computerMaterial;
-    computerGroup.add(assists.computerMesh);
+    if (assists.screenMesh) {
+      assists.screenMesh.material = screen.screenRenderEngine.material;
+      computerGroup.add(assists.screenMesh);
+    }
 
-    assists.crtMesh.material = computerMaterial;
-    computerGroup.add(assists.crtMesh);
+    if (assists.computerMesh) {
+      assists.computerMesh.material = computerMaterial;
+      computerGroup.add(assists.computerMesh);
+    }
 
-    assists.keyboardMesh.material = computerMaterial;
-    computerGroup.add(assists.keyboardMesh);
+    if (assists.crtMesh) {
+      assists.crtMesh.material = computerMaterial;
+      computerGroup.add(assists.crtMesh);
+    }
 
-    assists.shadowPlaneMesh.material = new THREE.MeshBasicMaterial({
-      map: assists.bakeFloorTexture,
-    });
-    computerGroup.add(assists.shadowPlaneMesh);
+    if (assists.keyboardMesh) {
+      assists.keyboardMesh.material = computerMaterial;
+      computerGroup.add(assists.keyboardMesh);
+    }
+
+    if (assists.shadowPlaneMesh) {
+      assists.shadowPlaneMesh.material = new THREE.MeshBasicMaterial({
+        map: assists.bakeFloorTexture,
+      });
+      computerGroup.add(assists.shadowPlaneMesh);
+    }
 
     computerGroup.position.x = controlProps.computerHorizontal;
     computerGroup.position.y = controlProps.computerHeight;
