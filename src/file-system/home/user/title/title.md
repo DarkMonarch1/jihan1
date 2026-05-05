@@ -2,20 +2,20 @@
 
 
 
-# Help
-### This is just like BASH except much more limited.
+# Hi there
+### I’m Jihanur Rahman.
 
-## • Type*ls* to list directory contents
+## Student, CSE at North South University
 
-## • Type*cd* to change directory
+## Full-stack software engineer
 
-## • Type*show* to render .md files
+## Type *help* for terminal commands
 
-## • Use ↑ and ↓ keys to scroll
+## Type *ls* to start exploring
 
-### Tip: try typing "show -all"
+### Use ↑ and ↓ to scroll
 
 
-## All commands
-### EDSH, version 0.2.1 
+## Welcome
+### Let’s build something cool.
 

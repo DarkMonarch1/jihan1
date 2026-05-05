@@ -73,6 +73,7 @@ export default function ScreenTextEngine(
   paragraphFont.font = assists.chillFont;
 
   const rootGroup = new THREE.Group();
+  rootGroup.position.y = 0.2;
   sceneRTT.add(rootGroup);
 
   const textMaterial = new THREE.MeshBasicMaterial({ color: textColor });
