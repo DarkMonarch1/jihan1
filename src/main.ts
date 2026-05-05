@@ -1,9 +1,10 @@
 import "./main.css";
 import WebGL from "./webgl";
 
-WebGL();
-
 const root = document.documentElement;
+root.dataset.booted = "false";
+
+WebGL();
 
 function onScroll() {
   if (window.scrollY > 10) root.dataset.scroll = "true";

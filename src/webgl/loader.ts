@@ -46,6 +46,7 @@ function loadAssists(callback: (assists: Assists) => any) {
     window.setTimeout(() => {
       (loadingDOM as any).style.opacity = "0";
       callback(assists as Assists);
+      document.documentElement.dataset.booted = "true";
     }, 1000);
     window.setTimeout(() => {
       (loadingDOM as any).style.display = "none";
